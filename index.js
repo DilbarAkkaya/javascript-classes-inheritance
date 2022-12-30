@@ -7,6 +7,12 @@ Base.prototype.plus = function (...part) {
     return item+next
   })
 }
+Base.prototype.minus = function (){
+  throw new Error ('This abstract method will be implement in child');
+}
+
+
+
 function StringBuilder (arg, addArg) {
   Base.call(this, arg);
 this.addArg = addArg;
@@ -21,4 +27,4 @@ StringBuilder.prototype.minus = function (char) {
 }
 
 const exp = new StringBuilder('dilbar');
-console.log(exp.minus(3))
+console.log(exp.minus(3));
