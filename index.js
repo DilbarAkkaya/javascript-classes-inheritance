@@ -17,10 +17,6 @@ Base.prototype.multiply = function (){
   throw new Error ('This abstract method will be implement in child');
   
 }
-Base.prototype.multiply = function (){
-  throw new Error ('This abstract method will be implement in child');
-  
-}
 
 
 function StringBuilder (arg) {
@@ -32,13 +28,15 @@ StringBuilder.prototype.constructor = StringBuilder;
 StringBuilder.prototype.superclass= Base;
 
 StringBuilder.prototype.minus = function (char) {
-  return this.arg = this.arg.slice(0, -char);
+ this.arg = this.arg.slice(0, -char);
+ return this;
 }
 
 StringBuilder.prototype.multiply = function (num) {
   var a = [this.arg];
   a.length = num;
-  return a.join(this.arg);
+  this.arg = a.join(this.arg);
+ return this;
 }
 const exp = new StringBuilder('dilbar ');
-console.log(exp.multiply(5));
+console.log(exp.plus('aaa').minus(3).multiply(3));
