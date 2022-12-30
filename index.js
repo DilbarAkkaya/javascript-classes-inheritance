@@ -38,5 +38,10 @@ StringBuilder.prototype.multiply = function (num) {
   this.arg = a.join(this.arg);
  return this;
 }
+StringBuilder.prototype.divide = function (n) {
+ var k = Math.floor((this.arg.length)/n);
+ this.arg = this.arg.slice(0,k);
+  return this;
+ }
 const exp = new StringBuilder('dilbar ');
-console.log(exp.plus('aaa').minus(3).multiply(3));
+console.log(exp.plus('aaaa', 'bbbb 22').minus(2).multiply(2).divide(5));
