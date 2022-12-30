@@ -17,7 +17,10 @@ Base.prototype.multiply = function (){
   throw new Error ('This abstract method will be implement in child');
   
 }
-
+Base.prototype.remove = function (){
+  throw new Error ('This abstract method will be implement in child');
+  
+}
 
 function StringBuilder (arg) {
   Base.call(this, arg);
@@ -43,5 +46,11 @@ StringBuilder.prototype.divide = function (n) {
  this.arg = this.arg.slice(0,k);
   return this;
  }
+ StringBuilder.prototype.remove = function (str) {
+  if(this.arg.match(str)) {
+    this.arg = this.arg.split(`${str}`).join('');
+  }
+   return this;
+  }
 const exp = new StringBuilder('dilbar ');
-console.log(exp.plus('aaaa', 'bbbb 22').minus(2).multiply(2).divide(5));
+console.log(exp.plus('aaaa').minus(2).multiply(2).divide(2).remove('dil'));
