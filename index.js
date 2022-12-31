@@ -73,6 +73,10 @@ class IntBuilder extends Base {
   constructor(arg){
     super(arg)
   }
+  static random(from, to){
+    return Math.floor(Math.random() * (to - from + 1) ) + from;
+    
+  }
   minus(...arg){
     this.arg = this.arg - arg.reduce(function (item, next) {
       return item + next
@@ -95,3 +99,4 @@ mod(arg){
 let intBuilder = new IntBuilder(10);
 
 console.log(intBuilder.plus(2, 3, 2).minus(1,2).multiply(2).divide(4).mod(3).get());
+console.log(IntBuilder.random(10, 20));
