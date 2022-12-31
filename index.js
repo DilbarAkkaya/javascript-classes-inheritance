@@ -75,11 +75,15 @@ class IntBuilder extends Base {
   }
   minus(...arg){
     this.arg = this.arg - arg.reduce(function (item, next) {
-      return item - next
+      return item + next
     })
     return this;
+}
+multiply(arg){
+  this.arg = this.arg * arg;
+  return this;
 }
 }
 let intBuilder = new IntBuilder(10);
 
-console.log(intBuilder.plus(3).minus(3, 2));
+console.log(intBuilder.plus(2, 3, 2).minus(1,2).multiply(2));
