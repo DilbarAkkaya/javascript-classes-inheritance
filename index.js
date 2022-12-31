@@ -25,7 +25,7 @@ Base.prototype.get = function () {
   return this.arg;
 }
 function StringBuilder(arg) {
-  Base.call(this, arg);
+  Base.call(this, arg || '');
 }
 
 StringBuilder.prototype = Object.create(Base.prototype);
@@ -61,16 +61,11 @@ StringBuilder.prototype.sub = function (from, n) {
 const strBuilder = new StringBuilder('Hello');
 console.log(strBuilder
   .plus(' all', '!')
-  .minus(4)
-  .multiply(3)
-  .divide(4)
-  .remove('l')
-  .sub(1, 1)
-  .get()
+
 );
 
 class IntBuilder extends Base {
-  constructor(arg){
+  constructor(arg = 0){
     super(arg)
   }
   static random(from, to){
