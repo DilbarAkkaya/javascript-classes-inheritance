@@ -87,7 +87,11 @@ divide(arg){
   this.arg = this.arg / arg;
   return this;
 }
+mod(arg){
+  this.arg = this.arg % arg;
+  return this;
+}
 }
 let intBuilder = new IntBuilder(10);
 
-console.log(intBuilder.plus(2, 3, 2).minus(1,2).multiply(2).divide(4));
+console.log(intBuilder.plus(2, 3, 2).minus(1,2).multiply(2).divide(4).mod(3));
