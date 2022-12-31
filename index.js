@@ -68,3 +68,12 @@ console.log(strBuilder
   .sub(1, 1)
   .get()
 );
+
+class IntBuilder extends Base {
+  constructor(arg){
+    super(arg)
+  }
+}
+let intBuilder = new IntBuilder(10);
+
+console.log(intBuilder.plus(2, 3, 2))
