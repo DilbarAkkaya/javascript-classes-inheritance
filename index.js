@@ -164,7 +164,14 @@ StringBuilder.prototype.minus = function (char) {
   this.arg = this.arg.slice(0, -char);
   return this;
 }
+StringBuilder.prototype.multiply = function (num) {
+  var a = [this.arg];
+  a.length = num;
+  this.arg = a.join(this.arg);
+  return this;
+}
+
 const strBuilder = new StringBuilder('Hello');
 console.log(strBuilder
-  .plus(' all', '!'))
+  .plus(' all', '!').minus(4).multiply(3))
 }
