@@ -181,9 +181,12 @@ StringBuilder.prototype.remove = function (str) {
   }
   return this;
 }
-
+StringBuilder.prototype.sub = function (from, n) {
+  this.arg = this.arg.substring(from, n+1);
+  return this;
+}
 
 const strBuilder = new StringBuilder('Hello');
 console.log(strBuilder
-  .plus(' all', '!').minus(4).multiply(3).divide(4).remove('l'))
+  .plus(' all', '!').minus(4).multiply(3).divide(4).remove('l').sub(1, 1))
 }
