@@ -188,5 +188,5 @@ StringBuilder.prototype.sub = function (from, n) {
 
 const strBuilder = new StringBuilder('Hello');
 console.log(strBuilder
-  .plus(' all', '!').minus(4).multiply(3).divide(4).remove('l').sub(1, 1))
+  .plus(' all', '!').minus(4).multiply(3).divide(4).remove('l').sub(1, 1).get())
 }
