@@ -54,15 +54,14 @@
     return this;
   };
   const strBuilder = new StringBuilder('Hello');
-  console.log(strBuilder
-    .plus(' all', '!')
-    .minus(4)
-    .multiply(3)
-    .divide(4)
-    .remove('l')
-    .sub(1, 1)
-    .get()
-  );
+    strBuilder
+      .plus(' all', '!')
+      .minus(4)
+      .multiply(3)
+      .divide(4)
+      .remove('l')
+      .sub(1, 1)
+      .get();
 
   class IntBuilder extends Base {
     constructor(arg = 0) {
@@ -91,17 +90,14 @@
     };
   }
   let intBuilder = new IntBuilder(10);
-
-  console.log(
     intBuilder
     .plus(2, 3, 2)
     .minus(1, 2)
     .multiply(2)
     .divide(4)
     .mod(3)
-    .get()
-    );
-  console.log(IntBuilder.random(10, 20));
+    .get();
+  IntBuilder.random(10, 20);
 }
 
 {
@@ -156,16 +152,14 @@
   };
 
   let intBuilder = new IntBuilder(10);
-  console.log(
     intBuilder
       .plus(2, 3, 2)
       .minus(1, 2)
       .multiply(2)
       .divide(4)
       .mod(3)
-      .get()
-  );
-  console.log(IntBuilder.random(10, 100));
+      .get();
+  IntBuilder.random(10, 100);
 
   function StringBuilder(arg) {
     Object.assign(this, new Base(arg || ''));
@@ -201,13 +195,12 @@
   };
 
   const strBuilder = new StringBuilder('Hello');
-  console.log(strBuilder
-    .plus(' all', '!')
-    .minus(4)
-    .multiply(3)
-    .divide(4)
-    .remove('l')
-    .sub(1, 1)
-    .get()
-  );
+    strBuilder
+      .plus(' all', '!')
+      .minus(4)
+      .multiply(3)
+      .divide(4)
+      .remove('l')
+      .sub(1, 1)
+      .get();
 }
