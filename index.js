@@ -170,8 +170,14 @@ StringBuilder.prototype.multiply = function (num) {
   this.arg = a.join(this.arg);
   return this;
 }
+StringBuilder.prototype.divide = function (n) {
+  var k = Math.floor((this.arg.length) / n);
+  this.arg = this.arg.slice(0, k);
+  return this;
+}
+
 
 const strBuilder = new StringBuilder('Hello');
 console.log(strBuilder
-  .plus(' all', '!').minus(4).multiply(3))
+  .plus(' all', '!').minus(4).multiply(3).divide(4))
 }
