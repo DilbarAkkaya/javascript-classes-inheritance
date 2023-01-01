@@ -175,9 +175,15 @@ StringBuilder.prototype.divide = function (n) {
   this.arg = this.arg.slice(0, k);
   return this;
 }
+StringBuilder.prototype.remove = function (str) {
+  if (this.arg.match(str)) {
+    this.arg = this.arg.split(`${str}`).join('');
+  }
+  return this;
+}
 
 
 const strBuilder = new StringBuilder('Hello');
 console.log(strBuilder
-  .plus(' all', '!').minus(4).multiply(3).divide(4))
+  .plus(' all', '!').minus(4).multiply(3).divide(4).remove('l'))
 }
