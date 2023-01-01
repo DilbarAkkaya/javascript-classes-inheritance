@@ -150,5 +150,21 @@ mod(arg){
 }
 
 let intBuilder = new IntBuilder(10);
-console.log(intBuilder.plus(2,3,2))
+console.log(intBuilder.plus(2,3,2).minus(1,2).multiply(2).divide(4).mod(3).get());
+
+function StringBuilder(arg) {
+  Object.assign(this, new Base(arg))
+}
+
+StringBuilder.prototype = Object.create(Base.prototype);
+StringBuilder.prototype.constructor = StringBuilder;
+StringBuilder.prototype.superclass = Base;
+
+StringBuilder.prototype.minus = function (char) {
+  this.arg = this.arg.slice(0, -char);
+  return this;
+}
+const strBuilder = new StringBuilder('Hello');
+console.log(strBuilder
+  .plus(' all', '!'))
 }
