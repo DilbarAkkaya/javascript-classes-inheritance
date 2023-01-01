@@ -1,4 +1,4 @@
-function Base(arg) {
+/* {function Base(arg) {
   this.arg = arg;
 }
 
@@ -95,3 +95,60 @@ let intBuilder = new IntBuilder(10);
 
 console.log(intBuilder.plus(2, 3, 2).minus(1,2).multiply(2).divide(4).mod(3).get());
 console.log(IntBuilder.random(10, 20));
+} */
+
+{
+class Base {
+  constructor(arg) {
+    this.arg = arg;
+  }
+  plus(...part){
+      this.arg = this.arg + part.reduce(function (item, next) {
+        return item + next
+      })
+      return this
+  }
+  minus(){
+    throw new Error('This abstract method will be implement in child');
+}
+multiply(){
+  throw new Error('This abstract method will be implement in child');
+}
+divide(){
+  throw new Error('This abstract method will be implement in child');
+}
+get(){
+  return this.arg;
+}
+}
+class IntBuilder extends Base {
+  constructor(arg = 0){
+    super(arg)
+  }
+  static random(from, to){
+    return Math.floor(Math.random() * (to - from + 1) ) + from;
+    
+  }
+  minus(...arg){
+    this.arg = this.arg - arg.reduce(function (item, next) {
+      return item + next
+    })
+    return this;
+}
+multiply(arg){
+  this.arg = this.arg * arg;
+  return this;
+}
+divide(arg){
+  this.arg = this.arg / arg;
+  return this;
+}
+mod(arg){
+  this.arg = this.arg % arg;
+  return this;
+}
+}
+
+let intBuilder = new IntBuilder(10);
+console.log(intBuilder.plus(2,3,2))
+}
