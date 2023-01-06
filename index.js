@@ -3,9 +3,9 @@
   };
 
   StringBase.prototype.plus = function (...arg) {
-    this.arg = this.arg + arg.reduce(function (item, next) {
+    this.arg = arg.reduce(function (item, next) {
       return item + next;
-    });
+    }, this.arg);
     return this;
   };
   StringBase.prototype.minus = function () {
