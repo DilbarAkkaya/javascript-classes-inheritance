@@ -44,7 +44,7 @@
   };
   StringBuilder.prototype.remove = function (str) {
     if (this.arg.match(str)) {
-      this.arg = this.arg.split(`${str}`).join('');
+      this.arg = this.arg.split(str).join('');
     }
     return this;
   };
