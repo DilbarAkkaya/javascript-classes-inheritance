@@ -1,33 +1,33 @@
 {
-  function Base(arg) {
+  function StringBase(arg) {
     this.arg = arg;
   };
 
-  Base.prototype.plus = function (...arg) {
+  StringBase.prototype.plus = function (...arg) {
     this.arg = this.arg + arg.reduce(function (item, next) {
       return item + next;
     });
     return this;
   };
-  Base.prototype.minus = function () {
+  StringBase.prototype.minus = function () {
     throw new Error('This abstract method will be implement in child');
   };
-  Base.prototype.multiply = function () {
+  StringBase.prototype.multiply = function () {
     throw new Error('This abstract method will be implement in child');
   };
-  Base.prototype.divide = function () {
+  StringBase.prototype.divide = function () {
     throw new Error('This abstract method will be implement in child');
   };
-  Base.prototype.get = function () {
+  StringBase.prototype.get = function () {
     return this.arg;
   };
 
   function StringBuilder(arg) {
-    Base.call(this, arg || '');
+    StringBase.call(this, arg || '');
   };
-  StringBuilder.prototype = Object.create(Base.prototype);
+  StringBuilder.prototype = Object.create(StringBase.prototype);
   StringBuilder.prototype.constructor = StringBuilder;
-  StringBuilder.prototype.superclass = Base;
+  StringBuilder.prototype.superclass = StringBase;
   StringBuilder.prototype.minus = function (char) {
     this.arg = this.arg.slice(0, -char);
     return this;
@@ -65,7 +65,7 @@
 }
 
 {
-  class Base {
+  class IntBase {
     constructor(arg) {
       this.arg = arg;
     }
@@ -88,7 +88,7 @@
       return this.arg;
     };
   };
-  class IntBuilder extends Base {
+  class IntBuilder extends IntBase {
     constructor(arg = 0) {
       super(arg);
     };
