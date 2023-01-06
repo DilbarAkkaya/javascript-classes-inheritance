@@ -1,4 +1,3 @@
-{
   function StringBase(arg) {
     this.arg = arg;
   };
@@ -62,9 +61,7 @@
       .remove('l')
       .sub(1, 1)
       .get();
-}
 
-{
   class IntBase {
     constructor(arg) {
       this.arg = arg;
@@ -124,4 +121,3 @@
       .mod(3)
       .get();
   IntBuilder.random(10, 100);
-}
